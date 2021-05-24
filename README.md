@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# 1 - Criar o boilerplate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```batch
+npx create-react-app boilerplate-esri-javascript-api-react
+```
 
-## Available Scripts
+# 2 - Deletar arquivos que não serão utilizados no boilerplate
 
-In the project directory, you can run:
+- src/logo.svg
+- src/setupTest.js
+- src/reportWebVitals.js
+- src/index.css
+- src/App.test.js
 
-### `yarn start`
+- No arquivo index.js atualizar para:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+ReactDOM.render(
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>,
+	document.getElementById('root')
+);
+```
 
-### `yarn test`
+- No arquivo App.js atualizar para:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```javascript
+import './App.css';
 
-### `yarn build`
+function App() {
+	return (
+		<div>
+			<h1>Esri JavaScript API React.js</h1>
+		</div>
+	);
+}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+export default App;
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- No arquivo App.css atualizar para:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```css
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+```
 
-### `yarn eject`
+# 3 - Instalar bibliotecas utilizadas no boilerplate
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`* - Instalar o esri-loader`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```batch
+yarn add esri-loader
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# 4 - Criar as pastas necessárias para o projeto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+src/components
+src/contexts
 
-## Learn More
+# 5 - Instalar bibliotecas utilizadas no projeto
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`* - Instalar o styled-components`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```batch
+yarn add styled-components
+```
 
-### Code Splitting
+# 6 - Criar o componente BaseMap
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+src/components/BaseMap
+src/components/BaseMap/index.js
+src/components/BaseMap/styles.js
 
-### Analyzing the Bundle Size
+# 7 - Criar o contexto para map e view
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+src/contexts/MapView
+src/contexts/MapView/index.js
 
-### Making a Progressive Web App
+# 8 - Criar o componente ZoomWidget
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+src/components/ZoomWidget
+src/components/ZoomWidget/index.js
+src/components/ZoomWidget/styles.js

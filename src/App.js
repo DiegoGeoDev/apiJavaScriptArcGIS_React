@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import BaseMap from './components/BaseMap';
+import ZoomWidget from './components/ZoomWidget';
+
+import MapViewProvider from './contexts/MapView';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const mapSettings = {
+		center: [-45.9, -23.4],
+		zoom: 8,
+		basemap: 'topo-vector',
+	};
+
+	return (
+		<MapViewProvider>
+			<BaseMap center={mapSettings.center} zoom={mapSettings.zoom} basemap={mapSettings.basemap} />
+			<ZoomWidget zoom={mapSettings.zoom} position="top-left" />
+		</MapViewProvider>
+	);
 }
 
 export default App;
